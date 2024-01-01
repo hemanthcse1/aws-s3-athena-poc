@@ -40,13 +40,13 @@ public class S3Controller {
         logger.info("userDetails : {}", createUserRequest);
 
         ObjectMapper objectMapper = new ObjectMapper();
-        s3Service.uploadJsonToS3("user_data.txt", objectMapper.writeValueAsString(createUserRequest));
+        s3Service.uploadJsonToS3("user_data.json", objectMapper.writeValueAsString(createUserRequest));
 
     }
 
     @GetMapping("/read")
     public String readDataFromS3(){
-        return s3Service.readDataFromS3("user_data.txt");
+        return s3Service.readDataFromS3("user_data.json");
     }
 
 }
